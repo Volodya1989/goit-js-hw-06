@@ -14,7 +14,7 @@ console.log("\n");
 //iterating and displaying categories and total number of elements
 for (let i = 0; i < numberOfCat; i += 1) {
   console.log(`Category: ${nameOfTheCategory[i].textContent}`);
-  console.log(`Elements ${numberOfElements[i].children.length}`);
+  console.log(`Elements: ${numberOfElements[i].children.length}`);
   console.log("\n");
 }
 

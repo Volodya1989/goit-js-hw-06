@@ -9,12 +9,8 @@ const ingredients = [
 
 const listEl = document.querySelector("ul#ingredients");
 
-ingredients.forEach((el) => {
+const markup = ingredients
+  .map((el) => `<li class="item"><img class="item">${el}</li>`)
+  .join("");
 
-  const ingredientEl = document.createElement("li");
-  ingredientEl.textContent = el;
-  ingredientEl.classList.add("item");
-  
-  return listEl.append(ingredientEl);
-
-});
+listEl.insertAdjacentHTML("beforebegin", markup);

@@ -27,11 +27,19 @@ const onClickCreate = () => {
       i + 1
     }" style="background-color:${getRandomHexColor()}; width:${widthNum}px; height:${widthNum}px;"></div>`;
   }
+  if (document.querySelector(".item1")) {
+    return window.alert(
+      "Please clear previous set of created elements to create new set of 'div's'"
+    );
+  }
+
   refs.insertBox.insertAdjacentHTML("afterbegin", markup);
 };
 
-const onClickDestroy = () => {
+const onClickDestroy = (event) => {
   refs.insertBox.innerHTML = "";
+  markup = "";
+  widthNum = 20;
 };
 
 refs.inputNum.addEventListener("input", onInput);

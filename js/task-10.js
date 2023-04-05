@@ -37,9 +37,13 @@ const onClickCreate = () => {
 };
 
 const onClickDestroy = (event) => {
-  refs.insertBox.innerHTML = "";
-  markup = "";
-  widthNum = 20;
+  const confirmDeletion = window.confirm("Do you really want to DELETE all colorful elements that you have created?");
+  if (confirmDeletion) {
+    refs.insertBox.innerHTML = "";
+    markup = "";
+    widthNum = 20;
+  } 
+  
 };
 
 refs.inputNum.addEventListener("input", onInput);

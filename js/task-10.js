@@ -37,7 +37,7 @@ const onClickCreate = () => {
 };
 
 const onClickDestroy = (event) => {
-  const confirmDeletion = window.confirm("Do you really want to DELETE all colorful elements that you have created?");
+  const confirmDeletion = window.confirm("Confirm to DELETE all colorful elements that you have created?");
   if (confirmDeletion) {
     refs.insertBox.innerHTML = "";
     markup = "";

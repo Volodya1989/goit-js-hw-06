@@ -29,7 +29,7 @@ const onClickCreate = () => {
   }
   if (document.querySelector(".item1")) {
     return window.alert(
-      "Please clear previous set of created elements to create new set of 'div's'"
+      "Please DELETE previous set of created elements to create new set of 'div's'"
     );
   }
 

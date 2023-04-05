@@ -29,7 +29,7 @@ const onClickCreate = () => {
   }
   if (document.querySelector(".item1")) {
     return window.alert(
-      "Please clear previous set of created elements to create new set of 'div's'"
+      "Please DELETE previous set of created elements to create new set of 'div's'"
     );
   }
 
@@ -37,7 +37,7 @@ const onClickCreate = () => {
 };
 
 const onClickDestroy = (event) => {
-  const confirmDeletion = window.confirm("Do you really want to DELETE all colorful elements that you have created?");
+  const confirmDeletion = window.confirm("Confirm to DELETE all colorful elements that you have created?");
   if (confirmDeletion) {
     refs.insertBox.innerHTML = "";
     markup = "";

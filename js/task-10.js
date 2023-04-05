@@ -9,47 +9,46 @@ const refs = {
   inputNum: document.querySelector("#controls input"),
   insertBox: document.querySelector("div#boxes"),
 };
-let numOfElements = null;
 let markup = "";
 let widthNum = 20;
 
-const onInput = (event) => {
-  numOfElements = event.currentTarget.value;
-};
-
-const onClickCreate = () => {
-  if (numOfElements === null || refs.inputNum.value === "") {
-    return window.alert("Enter a number please.");
-  }
-  for (let i = 0; i < numOfElements; i += 1) {
+const createBoxes = (num) => {
+  for (let i = 0; i < num; i += 1) {
     widthNum += 10;
     markup += `<div class = "item${
       i + 1
     }" style="background-color:${getRandomHexColor()}; width:${widthNum}px; height:${widthNum}px;"></div>`;
   }
   if (document.querySelector(".item1")) {
+    refs.inputNum.value = "";
+
     return window.alert(
       "Please DELETE previous set of created elements to create new set of 'div's'"
     );
   }
+};
+
+const onClickCreate = () => {
+  let numOfElements = refs.inputNum.value;
+
+  if (numOfElements === "") {
+    return window.alert("Enter a number please.");
+  }
+
+  createBoxes(numOfElements);
 
   refs.insertBox.insertAdjacentHTML("afterbegin", markup);
+  refs.inputNum.value = "";
+  refs.inputNum.disabled = true;
 };
 
-const onClickDestroy = (event) => {
-  const confirmDeletion = window.confirm(
-    "Confirm to DELETE all colorful elements that you have created?"
-  );
-  if (confirmDeletion) {
-    refs.insertBox.innerHTML = "";
-    refs.inputNum.value = "";
-    markup = "";
-    widthNum = 20;
-  }
+const destroyBoxes = () => {
+  refs.insertBox.innerHTML = "";
+  refs.inputNum.value = "";
+  markup = "";
+  widthNum = 20;
+  refs.inputNum.disabled = false;
 };
-
-refs.inputNum.addEventListener("input", onInput);
 
 refs.createBtn.addEventListener("click", onClickCreate);
-
-refs.destroyBtn.addEventListener("click", onClickDestroy);
+refs.destroyBtn.addEventListener("click", destroyBoxes);

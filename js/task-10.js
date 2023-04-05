@@ -18,8 +18,8 @@ const onInput = (event) => {
 };
 
 const onClickCreate = () => {
-  if (numOfElements === null) {
-    window.alert("Enter a number please.");
+  if (numOfElements === null || refs.inputNum.value === "") {
+    return window.alert("Enter a number please.");
   }
   for (let i = 0; i < numOfElements; i += 1) {
     widthNum += 10;
@@ -37,13 +37,15 @@ const onClickCreate = () => {
 };
 
 const onClickDestroy = (event) => {
-  const confirmDeletion = window.confirm("Confirm to DELETE all colorful elements that you have created?");
+  const confirmDeletion = window.confirm(
+    "Confirm to DELETE all colorful elements that you have created?"
+  );
   if (confirmDeletion) {
     refs.insertBox.innerHTML = "";
+    refs.inputNum.value = "";
     markup = "";
     widthNum = 20;
-  } 
-  
+  }
 };
 
 refs.inputNum.addEventListener("input", onInput);

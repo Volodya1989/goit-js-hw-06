@@ -17,7 +17,7 @@ const onSubmit = (event) => {
     email: email.value,
     password: password.value,
   };
-  console.log(`ObjectFormData: ${JSON.stringify(newObj)}`);
+  console.log(newObj);
 
   event.currentTarget.reset();
 };
